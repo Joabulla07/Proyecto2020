@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="85820033-e591-468f-b9c5-40b213342e65">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\joanna\Desktop\GithubInfor\ProyectoGestion\gestionAr\gestionAr\db.sqlite3</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="gestionturnos" uuid="59485793-b84f-4207-b2b3-925ad0e16e9e">
+    <data-source source="LOCAL" name="gestionturnos" uuid="37988c87-8907-407e-8ffa-f8175cde1f6e">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\joanna\Desktop\GithubInfor\ProyectoGestion\gestionAr\gestionturnos</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.31.1/license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.31.1/sqlite-jdbc-3.31.1.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

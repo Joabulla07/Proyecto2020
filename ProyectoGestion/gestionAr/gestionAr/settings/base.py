@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.login',
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'apps.djangoApps.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
+        'DIRS': [os.path.join(BASE_DIR, '../../apps/users/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'gestionturnos',
-        'HOST': 'localhost',
-        'PORT': 8080,
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -121,9 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_DIRS = (
-    os.path.join(os.path.dirname(BASE_DIR),'static'),
-    )
+
+STATIC_ROOT = os.path.join(BASE_DIR, '../../apps/users/static/')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
