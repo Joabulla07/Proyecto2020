@@ -20,7 +20,10 @@ from django.urls import path
 from ..users import views
 
 urlpatterns = [
+  path('users/consultorio', views.consultorioIU),
+  path('users/paciente', views.usuarioIU),
   path('', views.home),
+  path('register/', views.register),
   path('login/', views.login),
   path('admin/', admin.site.urls),
 ]

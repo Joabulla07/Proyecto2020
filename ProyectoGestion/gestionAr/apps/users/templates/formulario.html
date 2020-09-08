@@ -1,0 +1,28 @@
+{% load static from static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'static_formulario/style.css' %}">
+  <title>Formulario Registro</title>
+
+</head>
+<body>
+  <div class="imagenfondo">
+    <body background="{% static 'static_formulario/fondo.jpg' %}">
+  </div>
+  <section class="form-register">
+    <h4>Formulario Registro</h4>
+    </div>
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+        <input class="botons" type="submit" value="Registrarse" onclick="location.href=''">
+        <!--p><a href="#">¿Ya tengo Cuenta?</a></p>-->
+     </form>
+  </section>
+
+</body>
+</html>
