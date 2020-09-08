@@ -9,8 +9,7 @@ def home(request):
 
 
 def login(request):
-
-    return render(request, 'login.html')
+     return render(request, 'login.html')
 
 
 def register(request):
@@ -20,13 +19,10 @@ def register(request):
         a = form_data.get("dni")
         b = form_data.get("nombres")
         c = form_data.get("apellido")
-        d = form_data.get("provincia")
-        e = form_data.get("ciudad")
         f = form_data.get("domicilio")
         g = form_data.get("mail")
         h = form_data.get("telefono")
-        i = form_data.get("password")
-        obj = Paciente.objects.create(dni=a, nombres=b, apellido=c, provincia=d, ciudad=e, domicilio=f, mail=g, telefono=h, password=i)
+        obj = Paciente.objects.create(dni=a, nombres=b, apellido=c, domicilio=f, mail=g, telefono=h)
         return redirect(home)
     return render(request, 'formulario.html', {'form': form})
 
@@ -34,8 +30,5 @@ def register(request):
 def usuarioIU(request):
     return render(request, 'base.html')
 
-
-def consultorioIU(request):
-    return render(request, 'base.html')
 
 
