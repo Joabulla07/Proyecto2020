@@ -1,6 +1,5 @@
 from django.db import models
-from django.utils import timezone
-from model_utils import Choices
+
 # Create your models here.
 
 
@@ -12,8 +11,14 @@ class Medico(models.Model):
     telefono = models.CharField(max_length=15, default='3624227225')
     password = models.CharField(max_length=15, default='MEDICO')
 
+    def save(self, *args, **kwargs):
+        self.usuario = self.usuario.upper()
+        self.nombres_y_apellido = self.nombres_y_apellido.upper()
+        self.domicilio = self.domicilio.upper()
+        return super(Medico, self).save(*args, **kwargs)
 
-class Paciente(models.Model):
+
+class ListaTurnosMedico1(models.Model):
     medicos = models.CharField(max_length=15, null=True)
     dni = models.IntegerField(primary_key=True, null=False)
     nombres = models.CharField(max_length=10, null=True)
@@ -22,13 +27,26 @@ class Paciente(models.Model):
     mail = models.EmailField(null=True)
     telefono = models.CharField(max_length=15, null=True)
 
+    def save(self, *args, **kwargs):
+        self.nombres = self.nombres.upper()
+        self.apellido = self.apellido.upper()
+        self.domicilio = self.domicilio.upper()
+        return super(ListaTurnosMedico1, self).save(*args, **kwargs)
 
-class Turno(models.Model): #para poner en el calendario
-    hora = models.DateField()
-    fecha = models.TimeField()
-    dni = models.IntegerField(primary_key=True, null=False)
+
+class ListaTurnosMedico2(models.Model):
+    medicos = models.CharField(max_length=15, null=True)
+    dni = models.IntegerField(primary_key=True)
     nombres = models.CharField(max_length=10, null=True)
     apellido = models.CharField(max_length=10, null=True)
     domicilio = models.CharField(max_length=15, null=True)
     mail = models.EmailField(null=True)
     telefono = models.CharField(max_length=15, null=True)
+
+    def save(self, *args, **kwargs):
+        self.nombres = self.nombres.upper()
+        self.apellido = self.apellido.upper()
+        self.domicilio = self.domicilio.upper()
+        return super(ListaTurnosMedico2, self).save(*args, **kwargs)
+
+
