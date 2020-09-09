@@ -1,7 +1,13 @@
 from django import forms
 
+doctor = [
+        ('MARIA GOMEZ', 'Dra. MARIA GOMEZ'),
+        ('JOANNA BULLA', 'Dra. JOANNA BULLA'),
+]
+
 
 class Registro(forms.Form):
+    medicos = forms.ChoiceField(choices=doctor)
     dni = forms.IntegerField()
     nombres = forms.CharField()
     apellido = forms.CharField()
