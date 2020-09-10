@@ -1,4 +1,5 @@
 from django import forms
+from .models import *
 
 doctor = [
         ('MARIA GOMEZ', 'Dra. MARIA GOMEZ'),

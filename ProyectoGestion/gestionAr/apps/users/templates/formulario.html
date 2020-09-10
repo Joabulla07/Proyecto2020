@@ -16,12 +16,18 @@
   <section class="form-register">
     <h4>Solicitar Turno</h4>
     </div>
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input class="botons" type="submit" value="Solicitar" onclick="location.href=''">
-        <!--p><a href="#">¿Ya tengo Cuenta?</a></p>-->
-     </form>
+      <form action="" method="post">{% csrf_token %}
+        <table>
+
+            {{ form.as_table }}
+
+        </table>
+
+          <input class="botons" type="submit" value="Solicitar" onclick="location.href=''">
+          <!--p><a href="#">¿Ya tengo Cuenta?</a></p>-->
+      </form>
   </section>
 
 </body>
 </html>
+
