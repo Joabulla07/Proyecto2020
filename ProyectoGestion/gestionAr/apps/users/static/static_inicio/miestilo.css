@@ -71,9 +71,9 @@ body {
 
    .card-img-tamano{
        margin-top: 10px;
-       margin-left: 20px;
-       width: 200px;
-       height: 200px;
+       margin-left: 10px;
+       width: 600px;
+       height: 380px;
    }
    #contact {
     text-align: center;
