@@ -21,7 +21,7 @@ from ..users import views
 
 urlpatterns = [
 
-  path('users/medico', views.usuarioIU),
+  path('medico/', views.usuarioIU),
   path('', views.home),
   path('register/', views.register),
   path('login/', views.login),

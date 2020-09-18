@@ -1,1 +1,54 @@
-<h1>Aca va la interfaz de usuario</h1>>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     {% load static from static%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'static_medico/estiloMedico.css' %}">
+  <title>GestionAR Medicos</title>
+</head>
+<head>
+	<meta charset="UTF-8">
+	<title>Menù Lateral con Css</title>
+</head>
+<body>
+	<header class="header" style='background-color: rgb(37, 37, 37)'>
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo" style="margin-left: auto; margin-right: auto; display: block">
+				&nbsp;&nbsp;
+				 <a class="navbar-brand" href="#">
+				<img src="{% static 'static_medico/Logo.svg' %}"  height="50px" /> GestionAR
+          </a>
+			</div>
+			<nav class="menu">
+				<a href="#">Inicio</a>
+				<a href="#">Nosotros</a>
+				<a href="#">Usuario</a>
+				<a href="#">Contacto</a>
+			</nav>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="#">Perfil</a>
+			<a href="#">Calendario turnos</a>
+			<a href="#">Ver lista pacientes</a>
+			<a href="#">Añadir pacientes</a>
+			<a href="#">Quitar pacientes</a>
+			<a href="#">Ayuda</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+</body>
+</html>
