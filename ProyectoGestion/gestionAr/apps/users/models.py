@@ -26,6 +26,8 @@ class ListaTurnosMedico1(models.Model):
     domicilio = models.CharField(max_length=15, null=True)
     mail = models.EmailField(null=True)
     telefono = models.CharField(max_length=15, null=True)
+    fecha = models.DateField(blank=True, null=True)
+    hora = models.TimeField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.nombres = self.nombres.upper()
@@ -42,6 +44,8 @@ class ListaTurnosMedico2(models.Model):
     domicilio = models.CharField(max_length=15, null=True)
     mail = models.EmailField(null=True)
     telefono = models.CharField(max_length=15, null=True)
+    fecha = models.DateField(null=True)
+    hora = models.TimeField(null=True)
 
     def save(self, *args, **kwargs):
         self.nombres = self.nombres.upper()
