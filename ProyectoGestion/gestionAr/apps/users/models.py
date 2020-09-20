@@ -11,11 +11,24 @@ class Medico(models.Model):
     telefono = models.CharField(max_length=15, default='3624227225')
     password = models.CharField(max_length=15, default='MEDICO')
 
+    def __init__(self, usuario, dni, nombres_y_apellido, domicilio, mail, telefono, password):
+        self.usuario = usuario
+        self.nombres_y_apellido = nombres_y_apellido
+        self.domicilio = domicilio
+        self.mail = mail
+        self.telefono = telefono
+        self.password = password
+
+
     def save(self, *args, **kwargs):
         self.usuario = self.usuario.upper()
         self.nombres_y_apellido = self.nombres_y_apellido.upper()
         self.domicilio = self.domicilio.upper()
         return super(Medico, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return 'USUARIO:'+self.usuario+', NOMBRE Y APELLIDO:'+self.nombres_y_apellido+', DOMICILIO:'+self.domicilio+\
+               ', MAIL:'+self.mail+', TELEFONO: '+self.telefono+', PASSWORD:'+self.password
 
 
 class ListaTurnosMedico1(models.Model):
@@ -29,11 +42,26 @@ class ListaTurnosMedico1(models.Model):
     fecha = models.DateField(blank=True, null=True)
     hora = models.TimeField(blank=True, null=True)
 
+    def __init__(self, medicos, dni, nombres, apellido, domicilio, mail, telefono, fecha, hora):
+        self.medicos = medicos
+        self.dni = dni
+        self.nombres = nombres
+        self.apellido = apellido
+        self.domicilio = domicilio
+        self.mail = mail
+        self.telefono = telefono
+        self.fecha = fecha
+        self.hora = hora
+
     def save(self, *args, **kwargs):
         self.nombres = self.nombres.upper()
         self.apellido = self.apellido.upper()
         self.domicilio = self.domicilio.upper()
         return super(ListaTurnosMedico1, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return 'DNI:'+self.dni+', NOMBRE:'+self.nombres+', APELLIDO:'+self.apellido+', DOMICILIO:'+self.domicilio+\
+               ', MAIL:'+self.mail+',TELEFONO: '+self.telefono+', FECHA:'+self.fecha+', HORA:'+self.hora
 
 
 class ListaTurnosMedico2(models.Model):
@@ -47,10 +75,24 @@ class ListaTurnosMedico2(models.Model):
     fecha = models.DateField(null=True)
     hora = models.TimeField(null=True)
 
+    def __init__(self, medicos, dni, nombres, apellido, domicilio, mail, telefono, fecha, hora):
+        self.medicos = medicos
+        self.dni = dni
+        self.nombres = nombres
+        self.apellido = apellido
+        self.domicilio = domicilio
+        self.mail = mail
+        self.telefono = telefono
+        self.fecha = fecha
+        self.hora = hora
+
     def save(self, *args, **kwargs):
         self.nombres = self.nombres.upper()
         self.apellido = self.apellido.upper()
         self.domicilio = self.domicilio.upper()
         return super(ListaTurnosMedico2, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return 'DNI:'+self.dni+', NOMBRE:'+self.nombres+', APELLIDO:'+self.apellido+', DOMICILIO:'+self.domicilio+\
+               ', MAIL:'+self.mail+',TELEFONO: '+self.telefono+', FECHA:'+self.fecha+', HORA:'+self.hora
 
