@@ -21,9 +21,14 @@ from ..users import views
 
 urlpatterns = [
 
-  path('medico/', views.usuarioIU),
-  path('', views.home),
-  path('register/', views.register),
-  path('login/', views.login),
+
+  path('', views.home, name='home'),
+  path('register/', views.registrar_turno),
+  path('inicio/', views.inicioMedico),
+  path('listado_turnos', views.listado_turnos),
+  path('acceso_incorrecto/', views.acceso_incorrecto, name = 'acceso_incorrecto'),
+  path('login/', views.login, name='login'),
   path('admin/', admin.site.urls),
+  path('signup/', views.signup, name='signup'),
+
 ]

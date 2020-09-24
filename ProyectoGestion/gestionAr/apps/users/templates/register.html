@@ -1,0 +1,34 @@
+{% load static from static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'static_formulario/style.css' %}">
+  <title>Formulario Registro</title>
+</head>
+<body>
+  <div class="imagenfondo">
+    <body background="{% static 'static_formulario/fondo.jpg' %}">
+  </div>
+  <section class="form-register">
+    <h4>Nuevo Médico</h4>
+    </div>
+    {% if error %}
+      {{error}}
+    {% endif %}
+    <form action="{% url 'signup' %}" method='post'>
+      {% csrf_token %}
+      <u>Datos del usuario:</u>
+      {{userForm.as_p}}
+      <br><br>
+      <u>Datos del medico:</u>
+      {{medicoForm.as_p}}
+      <br>
+      <input class="botons" type="submit" value='Registrarse e ingresar'/>
+      <a href='{% url 'home' %}'><< Volver al inicio</a>
+    </form>
+  </section>
+
+</body>
+</html>

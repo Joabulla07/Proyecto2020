@@ -48,7 +48,7 @@
             </div>
             <div class="col-lg-5 bg-dark d-flex flex-column align-items-end min-vh-100">
                 <div class="px-lg-5 pt-lg-4 pb-lg-3 p-4 mb-auto w-100">
-                  <!--img src="Logo.svg" class="img-fluid" /--> 
+                  <!--img src="Logo.svg" class="img-fluid" /-->
                   <h1 class="font-weight mb-4" align="left" >
 					        <img src="{% static 'static_login/Logo.svg' %}" class="img-fluid" />
 				        	GestionAr</h1>
@@ -56,16 +56,19 @@
                 </div>
                 <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
                 <h1 class="font-weight-bold mb-4">Bienvenido</h1>
-                <form class="mb-5" action="" method="post">{% csrf_token %}
+                {% if error %}
+                  {{error}}
+                {% endif %}
+                <form class="mb-5" action="{% url 'login' %}" method="post">{% csrf_token %}
                     <div class="mb-4">
                       <label for="exampleInputEmail1" class="form-label font-weight-bold">Ingrese Usuario</label>
-                      <input type="id" class="form-control bg-dark-x border-0" id="exampleInputId" placeholder="Ingresa su usuario" aria-describedby="IDHelp">
+                      <input type="text" class="form-control bg-dark-x border-0" name='user' placeholder="Ingrese su usuario" aria-describedby="IDHelp">
                     </div>
                     <!-- number or email or id/ numero o email o id podes agregar en type-->
                     <div class="mb-4">
                       <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
-                      <input type="password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña" id="exampleInputPassword1">
-                      <a href="" id="emailHelp" class="form-text text-muted text-decoration-none">¿Has olvidado tu contraseña?</a>
+                      <input type="password" class="form-control bg-dark-x border-0 mb-2" placeholder="Ingresa tu contraseña" name='pass'>
+                      <!-- <a href="" id="emailHelp" class="form-text text-muted text-decoration-none">¿Has olvidado tu contraseña?</a> -->
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
                   </form>
@@ -77,7 +80,7 @@
                 </div>-->
                 </div>
                 <div class="text-center px-lg-5 pt-lg-3 pb-lg-4 p-4 mt-auto w-100">
-                    <p class="d-inline-block mb-0">¿Todavia no tienes una cuenta?</p> <a href="" class="text-light font-weight-bold text-decoration-none">Crea una ahora</a>
+                    <p class="d-inline-block mb-0">¿Todavia no tienes una cuenta??</p> <a href="/signup" class="text-light font-weight-bold text-decoration-none">Crea una ahora</a>
                 </div>
             </div>
         </div>

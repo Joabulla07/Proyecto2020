@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Acceso incorrecto</title>
+  </head>
+  <body>
+    <h1>Acceso restringido!</h1>
+    <p>Usted no tiene los permisos para ingresar a la pagina que esta solicitando</p>
+    <a href='{% url 'login' %}'>Ingrese con su usuario</a>
+    <a href='{% url 'home' %}'>Volver al inicio</a>
+  </body>
+</html>

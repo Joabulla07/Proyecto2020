@@ -1,34 +1,33 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
 class Medico(models.Model):
-    usuario = models.CharField(primary_key=True,max_length=10, default='MEDICO')
-    nombres_y_apellido = models.CharField(max_length=30, default='MARIA GOMEZ')
-    domicilio = models.CharField(max_length=15, default='JOSE HERNANDEZ 25')
-    mail = models.EmailField(null=True, default='MARIA@GMAILC.COM')
-    telefono = models.CharField(max_length=15, default='3624227225')
-    password = models.CharField(max_length=15, default='MEDICO')
-
-    def __init__(self, usuario, dni, nombres_y_apellido, domicilio, mail, telefono, password):
-        self.usuario = usuario
-        self.nombres_y_apellido = nombres_y_apellido
-        self.domicilio = domicilio
-        self.mail = mail
-        self.telefono = telefono
-        self.password = password
-
-
-    def save(self, *args, **kwargs):
-        self.usuario = self.usuario.upper()
-        self.nombres_y_apellido = self.nombres_y_apellido.upper()
-        self.domicilio = self.domicilio.upper()
-        return super(Medico, self).save(*args, **kwargs)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="medico")
+    nombres_y_apellido = models.CharField(max_length=100)
+    domicilio = models.CharField(max_length=100)
+    mail = models.EmailField(null=True)
+    telefono = models.CharField(max_length=15)
 
     def __str__(self):
-        return 'USUARIO:'+self.usuario+', NOMBRE Y APELLIDO:'+self.nombres_y_apellido+', DOMICILIO:'+self.domicilio+\
-               ', MAIL:'+self.mail+', TELEFONO: '+self.telefono+', PASSWORD:'+self.password
+        return self.nombres_y_apellido
+
+
+class TurnosMedico(models.Model):
+    medico = models.ForeignKey(Medico, on_delete=models.CASCADE, related_name='turnos', blank=True, null='True')
+    dni = models.IntegerField(primary_key=True, null=False)
+    nombres = models.CharField(max_length=10, null=True)
+    apellido = models.CharField(max_length=10, null=True)
+    domicilio = models.CharField(max_length=15, null=True)
+    mail = models.EmailField(null=True)
+    telefono = models.CharField(max_length=15, null=True)
+    fecha = models.DateField(help_text='00/00/0000', blank=True, null=True)
+    hora = models.TimeField(help_text='00:00',blank=True, null=True)
+
+    def __str__(self):
+        return 'Turno {}'.format(self.apellido)
 
 
 class ListaTurnosMedico1(models.Model):
@@ -42,26 +41,8 @@ class ListaTurnosMedico1(models.Model):
     fecha = models.DateField(blank=True, null=True)
     hora = models.TimeField(blank=True, null=True)
 
-    def __init__(self, medicos, dni, nombres, apellido, domicilio, mail, telefono, fecha, hora):
-        self.medicos = medicos
-        self.dni = dni
-        self.nombres = nombres
-        self.apellido = apellido
-        self.domicilio = domicilio
-        self.mail = mail
-        self.telefono = telefono
-        self.fecha = fecha
-        self.hora = hora
-
-    def save(self, *args, **kwargs):
-        self.nombres = self.nombres.upper()
-        self.apellido = self.apellido.upper()
-        self.domicilio = self.domicilio.upper()
-        return super(ListaTurnosMedico1, self).save(*args, **kwargs)
-
     def __str__(self):
-        return 'DNI:'+self.dni+', NOMBRE:'+self.nombres+', APELLIDO:'+self.apellido+', DOMICILIO:'+self.domicilio+\
-               ', MAIL:'+self.mail+',TELEFONO: '+self.telefono+', FECHA:'+self.fecha+', HORA:'+self.hora
+        return 'Turno {}'.format(self.apellido)
 
 
 class ListaTurnosMedico2(models.Model):
@@ -75,24 +56,5 @@ class ListaTurnosMedico2(models.Model):
     fecha = models.DateField(null=True)
     hora = models.TimeField(null=True)
 
-    def __init__(self, medicos, dni, nombres, apellido, domicilio, mail, telefono, fecha, hora):
-        self.medicos = medicos
-        self.dni = dni
-        self.nombres = nombres
-        self.apellido = apellido
-        self.domicilio = domicilio
-        self.mail = mail
-        self.telefono = telefono
-        self.fecha = fecha
-        self.hora = hora
-
-    def save(self, *args, **kwargs):
-        self.nombres = self.nombres.upper()
-        self.apellido = self.apellido.upper()
-        self.domicilio = self.domicilio.upper()
-        return super(ListaTurnosMedico2, self).save(*args, **kwargs)
-
     def __str__(self):
-        return 'DNI:'+self.dni+', NOMBRE:'+self.nombres+', APELLIDO:'+self.apellido+', DOMICILIO:'+self.domicilio+\
-               ', MAIL:'+self.mail+',TELEFONO: '+self.telefono+', FECHA:'+self.fecha+', HORA:'+self.hora
-
+        return 'Turno {}'.format(self.apellido)
